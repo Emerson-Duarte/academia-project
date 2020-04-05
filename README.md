@@ -1,8 +1,6 @@
-<h1> Portfolio </h1>
+<h1> Academia-project </h1>
 
-<p> Este projeto foi desenvolvido com intuito de agregar conhecimento em Node e Javascript, agregando o
-Nunjucks para reaproveitamento de códigos e dinamismo entre links. Para tal foi usado uma página de 
-suposto portfolio do Mayk Brito da Rockeseat.</p>
+<p> </p>
 
 
 <h2>Linguagens Utilizadas</h2>
@@ -16,10 +14,8 @@ suposto portfolio do Mayk Brito da Rockeseat.</p>
 
 <h2>Tecnologias</h2>
 
-<li>Nunjucks</li>
 <li>Express</li>
 <li>Nodemon</li>
-<li>Bootstrap</li>
 
 
 
@@ -28,7 +24,7 @@ suposto portfolio do Mayk Brito da Rockeseat.</p>
 Para iniciar o desenvolvimento, é necessário clonar o projeto do GitHub num diretório de sua preferência:
 ```shell
 cd "diretorio de sua preferencia"
-git clone https://github.com/Emerson-Duarte/Projeto-Portfolio
+git clone https://github.com/Emerson-Duarte/academia-project
 ```
 
 <h2>Configuração</h2>
@@ -37,7 +33,7 @@ git clone https://github.com/Emerson-Duarte/Projeto-Portfolio
 Express ("npm install express") responsável por gerenciar requisições e rotas, para rodar o backend da aplicação.</p>
 <p>E para uma atualização automática do servidor instalar o módulo Nodemon ("npm install -D nodemon"), efetuando a troca
 dentro de 'package.json' para  ' "start": "nodemon server.js" '.</p>
-<p>Executar também ("npm install nunjucks"), para intalação do nunjucks no projeto.</p>
+
 
 
 
