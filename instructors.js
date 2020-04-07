@@ -1,6 +1,6 @@
 const fs = require('fs')
 const data = require('./data.json')
-const { age } = require('./utils')
+const { age, date } = require('./utils')
 
 
 /* ==== SHOW ===== */
@@ -20,7 +20,7 @@ exports.show = function(req, res) {
         ...foundInstructor,
         age: age(foundInstructor.birth),
         services: foundInstructor.services.split(","),
-        created_at: new Intl.DateTimeFormat('pt-BR').format(foundInstructor.created_at)
+        created_at: new Intl.DateTimeFormat('en-GB').format(foundInstructor.created_at)
     }
     
 
@@ -29,7 +29,6 @@ exports.show = function(req, res) {
 
 
 /* ==== CREATE ===== */
-
 exports.post = function(req, res) {
     //VALIDAÇAO, pega o body, coloca em uma variavel faz um FOR pra ver se tem algum campo vazio
     const keys = Object.keys(req.body)
@@ -64,6 +63,55 @@ exports.post = function(req, res) {
     })
 }
 
-/* ==== UPDATE ===== */
+/* ==== EDIT ===== */
+exports.edit = function(req, res) {
+    //req.params
+    const { id } = req.params
+
+    let foundInstructor = data.instructors.find(function(instructor){
+        return instructor.id == id
+    })
+    
+    if (!foundInstructor) return res.send("Instructor not found!")
+
+    const instructor = {
+        ...foundInstructor,
+        birth: date(foundInstructor.birth)
+    }
+
+
+    return res.render("instructors/edit", {instructor})
+}
+
+/* ==== PUT ===== */
+exports.put = function(req, res) {
+    const { id } = req.body
+    let index = 0
+
+    let foundInstructor = data.instructors.find(function(instructor, foundIndex){
+        if (id == instructor.id ) {
+            index = foundIndex
+            return true
+        }
+    })
+    
+    if (!foundInstructor) return res.send("Instructor not found!")
+
+    const instructor = {
+        ...foundInstructor,
+        ...req.body,
+        birth: Date.parse(req.body.birth)
+    }
+
+    data.instructor[index] = instructor
+
+    fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err){
+        if(err)  return res.send("Write error")
+
+        return res.redirect(`/instructors/${id}`)
+    })
+
+}
 
 /* ==== DELETE ===== */
+
