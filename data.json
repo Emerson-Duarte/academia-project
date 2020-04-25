@@ -1,67 +1,46 @@
 {
-  "instructors": [
+  "members": [
     {
-      "id": 1,
-      "avatar_url": "https://source.unsplash.com/collection/3465564",
-      "name": "Carlos",
-      "birth": 655516800000,
+      "avatar_url": "https://images.unsplash.com/photo-1576678927484-cc907957088c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+      "name": "João Antunes",
+      "email": "joao@joao.com",
+      "birth": 648000000000,
       "gender": "M",
-      "services": "crossfit",
-      "created_at": 1586207445159
+      "blood": "AB+",
+      "weight": "83",
+      "height": "178",
+      "id": 1
     },
     {
       "id": 2,
-      "avatar_url": "https://source.unsplash.com/collection/3465564",
-      "name": "Maria",
-      "birth": 799632000000,
+      "avatar_url": "https://images.unsplash.com/photo-1575859694244-0b337bf58e0b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+      "name": "João Antunes",
+      "email": "joao@joao.com",
+      "birth": 978307200000,
       "gender": "M",
+      "blood": "A-",
+      "weight": "100",
+      "height": "180"
+    }
+  ],
+  "instructors": [
+    {
+      "id": 2,
+      "avatar_url": "https://images.unsplash.com/photo-1575859694244-0b337bf58e0b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+      "name": "Maria",
+      "birth": 800496000000,
+      "gender": "F",
       "services": "crossfit",
       "created_at": 1586208424479
     },
     {
       "id": 3,
-      "avatar_url": "http://google.com",
+      "avatar_url": "https://images.unsplash.com/photo-1576678927484-cc907957088c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
       "name": "Carlos",
       "birth": 639360000000,
       "gender": "M",
       "services": "crossfit",
       "created_at": 1586264961922
-    },
-    {
-      "id": 4,
-      "avatar_url": "http://google.com",
-      "name": "Juliano",
-      "birth": 957312000000,
-      "gender": "M",
-      "services": "crossfit",
-      "created_at": 1586281965061
-    },
-    {
-      "id": 5,
-      "avatar_url": "http://google.com",
-      "name": "Maria",
-      "birth": 929577600000,
-      "gender": "F",
-      "services": "crossfit, musculação",
-      "created_at": 1586282756993
-    },
-    {
-      "id": 6,
-      "avatar_url": "http://google.com",
-      "name": "Carlos",
-      "birth": 575337600000,
-      "gender": "M",
-      "services": "crossfit, musculação",
-      "created_at": 1586283877679
-    },
-    {
-      "id": 7,
-      "avatar_url": "http://google.com",
-      "name": "Carlos",
-      "birth": 949363200000,
-      "gender": "M",
-      "services": "crossfit, musculação",
-      "created_at": 1586283994677
     }
   ]
 }
