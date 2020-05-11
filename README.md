@@ -19,6 +19,10 @@
 <li>Browser-sync</li>
 
 
+<h2>Banco de Dados</h2>
+
+<li>PostgresSQL</li>
+
 
 <h2>Desenvolvimento</h2>
 
