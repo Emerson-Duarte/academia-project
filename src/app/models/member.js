@@ -60,17 +60,17 @@ module.exports = {
     update(data, callback) {
         const query = `
             UPDATE members SET 
-            avatar_url=($1),
-            name=($2),
-            birth=($3),
-            gender=($4),
-            email=($5),
-            blood=($6),
-            weight=($7),
-            height=($8)
-            instructor_id=($9)
-        WHERE id = $10
-        `
+                avatar_url=($1),
+                name=($2),
+                birth=($3),
+                gender=($4),
+                email=($5),
+                blood=($6),
+                weight=($7),
+                height=($8),
+                instructor_id=($9)
+            WHERE id=$10
+            `
 
         const values = [
             data.avatar_url,
@@ -104,5 +104,40 @@ module.exports = {
 
             callback(results.rows)
         })
-    }
+    },
+    paginate(params) {      // não recebe a callback nos parametros, pq ela esta dentro dos params
+        const { filter, limit, offset, callback } = params
+
+        let query = "",
+            filterQuery = "",
+            totalQuery = `(
+                SELECT count(*) FROM members
+            ) AS total`
+
+        if(filter) {
+
+            filterQuery = `
+            WHERE members.name ILIKE '%${filter}%'
+            OR members.email ILIKE '%${filter}%'
+            `
+
+            totalQuery = `(
+                SELECT count(*) FROM members
+                ${filterQuery}
+            ) AS total`
+        }
+
+        query = `
+        SELECT members.*, ${totalQuery}
+        FROM members
+        ${filterQuery}
+        LIMIT $1 OFFSET $2
+        `
+
+        db.query(query, [limit, offset], function(err, results) {
+            if(err) throw "Database Error!"
+
+            callback(results.rows)
+        })
+    }  
 }

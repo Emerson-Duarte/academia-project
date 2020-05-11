@@ -8,7 +8,7 @@ module.exports = {
         db.query(`
         SELECT instructors.*, COUNT(members) AS total_students
         FROM instructors
-        LEFT JOIN members ON (members.instructor_id = instructors.id)
+        LEFT JOIN members ON (instructors.id = members.instructor_id)
         GROUP BY instructors.id
         ORDER BY total_students DESC`, function(err, results) {        //ASC=>a-z, DESC=>z-a
             if(err) throw `Database Error! ${err}`
@@ -55,7 +55,7 @@ module.exports = {
         db.query(`
         SELECT instructors.*, COUNT(members) AS total_students
         FROM instructors
-        LEFT JOIN members ON (members.instructor_id = instructors.id)
+        LEFT JOIN members ON (instructors.id = members.instructor_id)
         WHERE instructors.name ILIKE '%${filter}%'
         OR instructors.services ILIKE '%${filter}%'
         GROUP BY instructors.id
@@ -98,6 +98,7 @@ module.exports = {
             return callback()
         })
     },
+
     paginate(params) {      // não recebe a callback nos parametros, pq ela esta dentro dos params
         const { filter, limit, offset, callback } = params
 
@@ -106,7 +107,6 @@ module.exports = {
             totalQuery = `(
                 SELECT count(*) FROM instructors
             ) AS total`
-
 
         if(filter) {
 

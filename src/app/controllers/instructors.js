@@ -18,13 +18,12 @@ module.exports = {
             callback(instructors) {
 
                 const pagination = {
-                    filter,
-                    total,
+                    total: Math.ceil(instructors[0].total / limit),
                     page
                 }
+ 
 
-
-                return res.render("instructors/index", { instructors, pagination })
+                return res.render("instructors/index", { instructors, pagination, filter })
             }
         }
 
@@ -60,7 +59,7 @@ module.exports = {
          }
 
          Instructor.create(req.body, function( instructor ) {
-             return res.redirect(`/instructors/{instructor.id}`)
+             return res.redirect(`/instructors/${instructor.id}`)
          })
         
        
@@ -97,7 +96,7 @@ module.exports = {
 
     delete(req, res) {
         Instructor.delete(req.body.id, function() {
-            return res.redirect(`/instructors`)
+            return res.redirect('/instructors')
         })
     }
 }
